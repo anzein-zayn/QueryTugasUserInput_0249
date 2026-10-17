@@ -163,3 +163,42 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
                         modifier = Modifier.weight(1f)
                     )
 
+                    ExposedDropdownMenuBox(
+                        expanded = experienceExpanded,
+                        onExpandedChange = { experienceExpanded = it },
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        OutlinedTextField(
+                            value = experience,
+                            onValueChange = { },
+                            readOnly = true,
+                            label = { Text(stringResource(R.string.label_experience)) },
+                            singleLine = true,
+                            trailingIcon = {
+                                ExposedDropdownMenuDefaults.TrailingIcon(expanded = experienceExpanded)
+                            },
+                            shape = fieldShape,
+                            modifier = Modifier
+                                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable)
+                                .fillMaxWidth()
+                        )
+
+                        ExposedDropdownMenu(
+                            expanded = experienceExpanded,
+                            onDismissRequest = { experienceExpanded = false }
+                        ) {
+                            experienceOptions.forEach { option ->
+                                DropdownMenuItem(
+                                    text = { Text(option) },
+                                    onClick = {
+                                        experience = option
+                                        experienceExpanded = false
+                                    }
+                                )
+                            }
+                        }
+
+                    }
+                }
+                    Spacer(modifier = Modifier.height(titleSpacing))
+
