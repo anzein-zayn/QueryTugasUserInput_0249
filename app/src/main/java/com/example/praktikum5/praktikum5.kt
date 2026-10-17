@@ -53,3 +53,28 @@ import java.util.Date
 import java.util.Locale
 
 
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FormDataDiri(modifier: Modifier = Modifier) {
+    var textNamaBelakang by remember { mutableStateOf("") }
+    var experienceExpanded by remember { mutableStateOf(false) }
+    var textNamaDepan by remember { mutableStateOf("") }
+    var birthDate by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var experience by remember { mutableStateOf("") }
+    val sectionSpacing = dimensionResource(R.dimen.section_spacing)
+    var showDatePicker by remember { mutableStateOf(false) }
+    var androidChecked by remember { mutableStateOf(false) }
+    var uiuxChecked by remember { mutableStateOf(false) }
+    var webChecked by remember { mutableStateOf(false) }
+    val datePickerState = rememberDatePickerState()
+    val experienceOptions = stringArrayResource(R.array.experience_options)
+    val headerHeight = dimensionResource(R.dimen.header_height)
+    val fieldShape = RoundedCornerShape(dimensionResource(R.dimen.field_corner_radius))
+    val fieldSpacing = dimensionResource(R.dimen.field_spacing)
+    val titleSpacing = dimensionResource(R.dimen.title_spacing)
+    val datePattern = stringResource(R.string.date_pattern)
+    val dateFormat = remember(datePattern) {
+        SimpleDateFormat(datePattern, Locale.getDefault())
+    }
