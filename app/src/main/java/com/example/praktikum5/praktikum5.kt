@@ -202,3 +202,34 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
                 }
                     Spacer(modifier = Modifier.height(titleSpacing))
 
+                    Text(
+                        text = stringResource(R.string.label_skill),
+                        color = colorResource(R.color.white),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = dimensionResource(R.dimen.label_text_size).value.sp,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        SkillCheckbox(
+                            label = stringResource(R.string.skill_android),
+                            checked = androidChecked,
+                            onCheckedChange = { androidChecked = it }
+                        )
+                        SkillCheckbox(
+                            label = stringResource(R.string.skill_uiux),
+                            checked = uiuxChecked,
+                            onCheckedChange = { uiuxChecked = it }
+                        )
+                        SkillCheckbox(
+                            label = stringResource(R.string.skill_web),
+                            checked = webChecked,
+                            onCheckedChange = { webChecked = it }
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(sectionSpacing))
