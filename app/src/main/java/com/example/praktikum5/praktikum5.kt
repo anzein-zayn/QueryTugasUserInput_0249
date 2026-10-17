@@ -124,3 +124,42 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
                 }
 
                 Spacer(modifier = Modifier.height(fieldSpacing))
+
+                OutlinedTextField(
+                    value = email,
+                    onValueChange = { email = it },
+                    label = { Text(stringResource(R.string.label_email)) },
+                    singleLine = true,
+                    keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(
+                        keyboardType = KeyboardType.Email
+                    ),
+                    shape = fieldShape,
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                Spacer(modifier = Modifier.height(fieldSpacing))
+
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(fieldSpacing)
+                ) {
+                    OutlinedTextField(
+                        value = birthDate,
+                        onValueChange = { },
+                        readOnly = true,
+                        label = { Text(stringResource(R.string.label_birth_date)) },
+                        singleLine = true,
+                        trailingIcon = {
+                            IconButton(onClick = { showDatePicker = true }) {
+                                Icon(
+                                    imageVector = Icons.Default.DateRange,
+                                    contentDescription = stringResource(R.string.content_desc_pick_date)
+                                )
+                            }
+                        },
+                        shape = fieldShape,
+
+                        modifier = Modifier.weight(1f)
+                    )
+
