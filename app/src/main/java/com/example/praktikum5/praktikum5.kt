@@ -256,3 +256,49 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
 
 
             }
+    if (showDatePicker) {
+        DatePickerDialog(
+            onDismissRequest = { showDatePicker = false },
+            confirmButton = {
+                TextButton(onClick = {
+                    datePickerState.selectedDateMillis?.let { millis ->
+                        birthDate = dateFormat.format(Date(millis))
+                    }
+                    showDatePicker = false
+                }) {
+                    Text(stringResource(R.string.dialog_ok))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDatePicker = false }) {
+                    Text(stringResource(R.string.dialog_cancel))
+                }
+            }
+        ) {
+            DatePicker(state = datePickerState)
+        }
+    }
+}
+
+
+@Composable
+fun SkillCheckbox(
+    label: String,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit
+) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Checkbox(
+            checked = checked,
+            onCheckedChange = onCheckedChange,
+            colors = CheckboxDefaults.colors(
+                checkedColor = colorResource(R.color.purple_primary)
+            )
+        )
+        Text(
+            text = label,
+            color = colorResource(R.color.text_secondary),
+            fontSize = dimensionResource(R.dimen.label_text_size).value.sp
+        )
+    }
+}
