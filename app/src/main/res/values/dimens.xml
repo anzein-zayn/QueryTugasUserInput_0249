@@ -3,4 +3,5 @@
 
     <dimen name="card_corner_radius">32dp</dimen>
     <dimen name="section_spacing">24dp</dimen>
+    <dimen name="field_corner_radius">16dp</dimen>
 </resources>
