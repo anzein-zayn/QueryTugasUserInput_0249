@@ -78,6 +78,7 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
     val dateFormat = remember(datePattern) {
         SimpleDateFormat(datePattern, Locale.getDefault())
     }
+
     var namaD by remember { mutableStateOf("") }
     var namaB by remember { mutableStateOf("") }
     var mail by remember { mutableStateOf("") }
@@ -94,3 +95,32 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
         )
 
 
+        Scaffold(containerColor = Color.Transparent) { innerPadding ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+            ) {
+                Spacer(modifier = Modifier.height(headerHeight))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(fieldSpacing)
+                ) {
+                    OutlinedTextField(
+                        value = textNamaDepan,
+                        onValueChange = { textNamaDepan = it },
+                        label = { Text(stringResource(R.string.label_first_name)) },
+                        singleLine = true,
+                        modifier = Modifier.weight(1f)
+                    )
+                    OutlinedTextField(
+                        value = textNamaBelakang,
+                        onValueChange = { textNamaBelakang = it },
+                        label = { Text(stringResource(R.string.label_last_name)) },
+                        singleLine = true,
+
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(fieldSpacing))
