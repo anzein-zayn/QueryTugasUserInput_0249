@@ -233,3 +233,26 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
                     }
 
                     Spacer(modifier = Modifier.height(sectionSpacing))
+
+
+                    Button(
+                        modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp),
+                        enabled = textNamaDepan.isNotEmpty() && textNamaBelakang.isNotEmpty() && email.isNotEmpty() && experience.isNotEmpty() && birthDate.isNotEmpty(),
+                        onClick = {
+                            namaD = textNamaDepan
+                            namaB = textNamaBelakang
+                            mail = email
+                            birth = birthDate
+                            xperience = experience
+                            showDatePicker = false
+                        }
+                    ) {
+                        Text(text = "Procced")
+                    }
+                }
+
+
+            }
+
+
+            }
