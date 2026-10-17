@@ -78,3 +78,19 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
     val dateFormat = remember(datePattern) {
         SimpleDateFormat(datePattern, Locale.getDefault())
     }
+    var namaD by remember { mutableStateOf("") }
+    var namaB by remember { mutableStateOf("") }
+    var mail by remember { mutableStateOf("") }
+    var xperience by remember { mutableStateOf("") }
+    var birth by remember { mutableStateOf("") }
+    Box(modifier = modifier.fillMaxSize()) {
+        Image(
+            painter = painterResource(R.drawable.logoumy),
+            contentDescription = stringResource(R.string.content_desc_background),
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(headerHeight)
+        )
+
+
